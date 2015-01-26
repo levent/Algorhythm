@@ -8,11 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PlaylistMasterViewController: UIViewController {
+    
+    @IBOutlet weak var aButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        aButton.setTitle("Press me!", forState: .Normal)
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +24,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func aButtonPressed() {
+        view.backgroundColor = UIColor.orangeColor()
+    }
 
 }
 
