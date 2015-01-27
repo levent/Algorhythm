@@ -18,39 +18,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="0JE-we-vcu">
+                            <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="0JE-we-vcu">
                                 <rect key="frame" x="60" y="184" width="200" height="200"/>
                                 <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="HYY-ga-Fby"/>
                                     <constraint firstAttribute="height" constant="200" id="nRv-5N-ljb"/>
                                 </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h57-td-nkF">
-                                <rect key="frame" x="137" y="392" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                                 <connections>
-                                    <segue destination="ArI-1Q-Mja" kind="push" identifier="showPlaylistDetail" id="TzN-Oc-wf9"/>
+                                    <outletCollection property="gestureRecognizers" destination="RpM-AW-8zA" appends="YES" id="ct1-gV-asB"/>
                                 </connections>
-                            </button>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="h57-td-nkF" firstAttribute="top" secondItem="0JE-we-vcu" secondAttribute="bottom" constant="8" id="6au-Ok-Lsi"/>
                             <constraint firstAttribute="centerX" secondItem="0JE-we-vcu" secondAttribute="centerX" id="FSJ-GU-g6r"/>
                             <constraint firstAttribute="centerY" secondItem="0JE-we-vcu" secondAttribute="centerY" id="Njp-lT-95Q"/>
-                            <constraint firstAttribute="centerX" secondItem="h57-td-nkF" secondAttribute="centerX" id="W0V-dB-1pz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Playlists" id="kfi-wG-1wR"/>
                     <connections>
-                        <outlet property="aButton" destination="h57-td-nkF" id="eE2-Xe-Sbd"/>
                         <outlet property="playlistImageView0" destination="0JE-we-vcu" id="2BB-rX-fV8"/>
+                        <segue destination="ArI-1Q-Mja" kind="push" identifier="showPlaylistDetailSegue" id="lHb-6S-Dzu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="RpM-AW-8zA">
+                    <connections>
+                        <action selector="showPlaylistDetail:" destination="vXZ-lx-hvc" id="tUQ-de-hRq"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="694" y="406"/>
         </scene>
@@ -72,8 +70,32 @@
                                     <constraint firstAttribute="width" secondItem="t5j-o9-M2W" secondAttribute="height" multiplier="32:29" id="F1j-mk-jGL"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artists" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Al-pp-TR0">
+                                <rect key="frame" x="36" y="374" width="46" height="20.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Number 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uza-eP-RQA">
+                                <rect key="frame" x="36" y="402" width="82" height="14.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Number 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6v-Mn-CZo">
+                                <rect key="frame" x="36" y="424" width="82" height="14.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Number 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocg-Ge-vEu">
+                                <rect key="frame" x="36" y="446" width="82" height="14.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vBU-uz-VEw">
-                                <rect key="frame" x="16" y="234" width="288" height="120"/>
+                                <rect key="frame" x="16" y="264" width="288" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title goes here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIu-qk-Y7N">
                                         <rect key="frame" x="20" y="10" width="107.5" height="20.5"/>
@@ -96,35 +118,11 @@
                                     <constraint firstAttribute="trailing" secondItem="JvT-Go-pC2" secondAttribute="trailing" constant="20" id="9zp-lV-9Zf"/>
                                     <constraint firstItem="JvT-Go-pC2" firstAttribute="leading" secondItem="vBU-uz-VEw" secondAttribute="leading" constant="20" id="AdQ-8d-EXD"/>
                                     <constraint firstItem="JvT-Go-pC2" firstAttribute="top" secondItem="CIu-qk-Y7N" secondAttribute="bottom" constant="8" id="Cig-eK-Jho"/>
-                                    <constraint firstAttribute="width" secondItem="vBU-uz-VEw" secondAttribute="height" multiplier="12:5" id="Ecl-5a-TVF"/>
+                                    <constraint firstAttribute="width" secondItem="vBU-uz-VEw" secondAttribute="height" multiplier="12:5" constant="72" id="Ecl-5a-TVF"/>
                                     <constraint firstItem="CIu-qk-Y7N" firstAttribute="top" secondItem="vBU-uz-VEw" secondAttribute="top" constant="10" id="dWv-Y1-vvs"/>
                                     <constraint firstItem="CIu-qk-Y7N" firstAttribute="leading" secondItem="vBU-uz-VEw" secondAttribute="leading" constant="20" id="hzt-8U-vfY"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artists" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Al-pp-TR0">
-                                <rect key="frame" x="36" y="374" width="46" height="20.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Number 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uza-eP-RQA">
-                                <rect key="frame" x="36" y="402" width="82" height="14.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Number 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocg-Ge-vEu">
-                                <rect key="frame" x="36" y="446" width="82" height="14.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Number 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6v-Mn-CZo">
-                                <rect key="frame" x="36" y="424" width="82" height="14.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1764705882352941" green="0.18431372549019609" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
