@@ -16,21 +16,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0JE-we-vcu">
+                                <rect key="frame" x="60" y="184" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="HYY-ga-Fby"/>
+                                    <constraint firstAttribute="height" constant="200" id="nRv-5N-ljb"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h57-td-nkF">
-                                <rect key="frame" x="137" y="269" width="46" height="30"/>
+                                <rect key="frame" x="137" y="392" width="46" height="30"/>
                                 <state key="normal" title="Button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ArI-1Q-Mja" kind="push" id="TzN-Oc-wf9"/>
+                                    <segue destination="ArI-1Q-Mja" kind="push" identifier="showPlaylistDetail" id="TzN-Oc-wf9"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="h57-td-nkF" secondAttribute="centerY" id="ZmV-Si-4VJ"/>
-                            <constraint firstAttribute="centerX" secondItem="h57-td-nkF" secondAttribute="centerX" id="aBg-DX-mc4"/>
+                            <constraint firstItem="h57-td-nkF" firstAttribute="top" secondItem="0JE-we-vcu" secondAttribute="bottom" constant="8" id="6au-Ok-Lsi"/>
+                            <constraint firstAttribute="centerX" secondItem="0JE-we-vcu" secondAttribute="centerX" id="FSJ-GU-g6r"/>
+                            <constraint firstAttribute="centerY" secondItem="0JE-we-vcu" secondAttribute="centerY" id="Njp-lT-95Q"/>
+                            <constraint firstAttribute="centerX" secondItem="h57-td-nkF" secondAttribute="centerX" id="W0V-dB-1pz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Playlists" id="kfi-wG-1wR"/>
@@ -53,9 +61,24 @@
                     <view key="view" contentMode="scaleToFill" id="Nws-xh-lP0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You haven't pressed the button" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9U-pR-dFc">
+                                <rect key="frame" x="40" y="274" width="240" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.29411764709999999" green="0.68627450980000004" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="d9U-pR-dFc" secondAttribute="centerY" id="YCx-wS-htw"/>
+                            <constraint firstAttribute="centerX" secondItem="d9U-pR-dFc" secondAttribute="centerX" id="nmt-5s-qJf"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Artists" id="7JT-NR-hHJ"/>
+                    <connections>
+                        <outlet property="buttonPressLabel" destination="d9U-pR-dFc" id="TIk-mq-1qW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pbO-I0-0HV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
